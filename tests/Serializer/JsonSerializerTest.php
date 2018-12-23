@@ -98,7 +98,7 @@ class JsonSerializerTest extends TestCase
 JSON;
 
         $serializer = new JsonSerializer();
-        $res = $serializer->serialize($input);
+        $res = $serializer->serialize(new PropertyHolder(null, null, $input, null));
         $this->assertSame($expected, $res);
     }
 }

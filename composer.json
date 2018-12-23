@@ -14,7 +14,7 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "mintware-de/data-model-mapper": "^1.0.0",
+    "mintware-de/data-model-mapper": "^2.0.0",
     "ext-json": "*"
   },
   "autoload": {
