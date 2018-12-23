@@ -35,7 +35,7 @@ class JsonSerializer implements SerializerInterface
     }
 
     /** @inheritdoc */
-    public function serialize($data)
+    public function serialize(PropertyHolder $data)
     {
         $rawData = $this->removeMetaDataEntries($data);
         return json_encode($rawData, $this->serializeOptions);
@@ -43,6 +43,8 @@ class JsonSerializer implements SerializerInterface
 
     public function removeMetaDataEntries($data)
     {
+        if ($data instanceof PropertyHolder) $data = $data->value;
+
         $res = [];
         foreach ($data as $k => $v) {
             if ($v instanceof PropertyHolder) {
